@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "401183573677",
+    "project_id": "fir-cloudmsg-codelab",
+    "storage_bucket": "fir-cloudmsg-codelab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401183573677:android:9b204008442b4bb5956824",
+        "android_client_info": {
+          "package_name": "com.flutter.fcm.fcmflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401183573677-98k26dnkm6hatrvle2ed11201tf7dk9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfpTZYj_EzGSc6E1Vdz3291SD2cX7g750"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401183573677-98k26dnkm6hatrvle2ed11201tf7dk9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
