@@ -1,7 +1,55 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'firebase_options.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
+// TODO: Add stream controller
+// TODO: Define the background message handler
+
+Future<void> main() async {
+ WidgetsFlutterBinding.ensureInitialized();
+ //initialization
+ await Firebase.initializeApp(
+   options: DefaultFirebaseOptions.currentPlatform,
+ );
+
+ //Request permission
+ final messaging = FirebaseMessaging.instance;
+
+final settings = await messaging.requestPermission(
+ alert: true,
+ announcement: false,
+ badge: true,
+ carPlay: false,
+ criticalAlert: false,
+ provisional: false,
+ sound: true,
+);
+
+ if (kDebugMode) {
+   print('Permission granted: ${settings.authorizationStatus}');
+ }
+ // TODO: Register with FCM
+ String? token;
+ const vapidKey = "BH2kATjOsEJ8Kt8T2EcaElzKInQBOqm9VqpblGNvJNYe9x5T_BscfdhH1X77_rwSKa5nYzZz3XQNpxbBGLf4nPE";
+
+  if (DefaultFirebaseOptions.currentPlatform == DefaultFirebaseOptions.web) {
+   token = await messaging.getToken(
+     vapidKey: vapidKey,
+   );
+ } else {
+   token = await messaging.getToken();
+ }
+
+if (kDebugMode) {
+  print('Registration Token=$token');
+}
+ // TODO: Set up foreground message handler
+ // TODO: Set up background message handler
+
+ runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
